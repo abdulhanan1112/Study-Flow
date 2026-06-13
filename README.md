@@ -1,56 +1,65 @@
-StudyFlow is a modern AI-powered study companion app built with Flutter and Firebase. It helps students organize their learning journey by managing notes, subjects, tasks, PDFs, and study sessions in one clean and intelligent platform.
+# 📘 StudyFlow
 
-The app is designed to improve productivity through real-time sync, offline support, and smart study tracking, making it a complete digital workspace for students.
+StudyFlow is a Flutter + Firebase-based AI-powered study companion app designed to help students organize their learning efficiently. It combines notes, tasks, subjects, PDFs, and study tracking into one seamless productivity platform with real-time sync and offline support.
 
-🚀 Features
-🔐 Authentication
-Email/Password login
-Google Sign-In
-Secure user session management
-📚 Subjects & Notes
-Create and manage subjects (e.g., Flutter, DSA, OOP)
-Add, edit, and delete notes
-Organize notes per subject
-Real-time updates using Firestore streams
-📄 PDF & File Storage
-Upload lecture notes, books, and assignments
-Download and view files anytime
-Firebase Storage integration
-✅ Task Management
-Create study tasks with deadlines
-Mark tasks as completed
-Filter pending and completed tasks
-⏱ Study Timer (Pomodoro)
-Track focused study sessions
-Save study history
-Improve productivity with structured learning
-📊 Progress Dashboard
-View total study time
-Track completed tasks
-Analyze learning progress
-🔔 Notifications
-Study reminders using Firebase Cloud Messaging (FCM)
-Deadline alerts
-🌐 Real-Time Sync
-Instant updates across devices using Firestore streams
-📶 Offline Support
-Access notes and tasks without internet
-Automatic sync when online
-🛠️ Tech Stack
-Flutter – Cross-platform UI
-Firebase Authentication – User login system
-Cloud Firestore – NoSQL database
-Firebase Storage – File uploads
-Firebase Cloud Messaging (FCM) – Notifications
-Provider / State Management
-StreamBuilder (Real-time updates)
-🎯 Purpose of the Project
+---
 
-This project was built to demonstrate real-world Flutter + Firebase skills, including:
+## 🚀 Features
 
-Authentication systems
-Real-time database architecture
-Cloud storage handling
-Secure data access with Firestore rules
-State management in Flutter
-Scalable app structure
+* 🔐 Authentication (Email/Password & Google Sign-In)
+* 📚 Subject management (create & organize subjects)
+* 📝 Notes system with real-time updates
+* 📄 PDF & file upload using Firebase Storage
+* ✅ Task manager with deadlines & status tracking
+* ⏱ Study timer (Pomodoro technique)
+* 📊 Progress dashboard & study analytics
+* 🔔 Push notifications using Firebase Cloud Messaging
+* 🌐 Real-time data sync with Firestore
+* 📶 Offline support with automatic sync
+
+---
+
+## 🛠 Tech Stack
+
+* Flutter (UI development)
+* Firebase Authentication
+* Cloud Firestore
+* Firebase Storage
+* Firebase Cloud Messaging (FCM)
+* Provider / State Management
+
+---
+
+## 🎯 Purpose
+
+This project demonstrates real-world Flutter + Firebase development skills, including authentication, database design, real-time systems, cloud storage, notifications, and scalable app architecture.
+
+---
+
+## 📱 Screens (Planned / Implemented)
+
+* Login / Signup
+* Dashboard
+* Subjects
+* Notes Editor
+* Tasks Manager
+* Study Timer
+* Profile Page
+
+---
+
+## 🚀 Future Improvements
+
+* AI-powered note summarization
+* AI-generated quizzes from notes
+* Smart study scheduling
+* Collaborative study groups
+* Dark mode enhancements
+
+---
+
+## 👨‍💻 Developer
+
+Built with ❤️ using Flutter & Firebase.
+
+---
