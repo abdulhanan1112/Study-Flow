@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "348278272753",
+    "project_id": "study-flow-f9315",
+    "storage_bucket": "study-flow-f9315.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348278272753:android:44182c0ad9c44e5c0d6f50",
+        "android_client_info": {
+          "package_name": "com.example.study_flow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqv0IR1ohImhKkP0Mmg9wWKvoMUBibLO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
