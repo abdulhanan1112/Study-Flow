@@ -50,7 +50,9 @@ class AuthServices {
     final GoogleSignIn googleSignIn = GoogleSignIn.instance;
 
     // initialize
-    await googleSignIn.initialize();
+    await googleSignIn.initialize(
+      serverClientId: '348278272753-7t0f5ip9uipc43rlqnfpme3ie9377ve1.apps.googleusercontent.com'
+    );
 
     //authenticate and authentication
     final GoogleSignInAccount googleUser = await googleSignIn.authenticate();
@@ -66,6 +68,7 @@ class AuthServices {
       UserCredential res = await _auth.signInWithCredential(credential);
       return _userFromFirebaseUser(res);
     } catch (e) {
+      print(e.toString());
       return null;
     }
   }
