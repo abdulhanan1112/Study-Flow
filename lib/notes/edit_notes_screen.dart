@@ -39,7 +39,7 @@ class EditNotesScreen extends ConsumerWidget {
       
               TextButton(onPressed: ()async {
                 final notesProv=ref.read(NotesProvider);
-                await notesProv.addNotes(sId, notes.document.toDelta().toJson() as List<Map>, title.text);
+                await notesProv.addNotes(sId, notes.document.toDelta().toJson(), title.text);
                 ref.invalidate(listOfNotesProvider);
                 Navigator.pop(context);
       

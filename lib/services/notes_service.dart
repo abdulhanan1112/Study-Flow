@@ -11,7 +11,7 @@ class NotesService {
   final CollectionReference _subjectInstance= FirebaseFirestore.instance.collection('Users');
 
   // add notes for specific subject
-  Future<void> addNotes(String subjectId,List<Map> notes,String title)async{
+  Future<void> addNotes(String subjectId,List<dynamic> notes,String title)async{
     try{
       await _subjectInstance.doc(uid).collection('Subjects').doc(subjectId).collection('Notes').add(
         {
