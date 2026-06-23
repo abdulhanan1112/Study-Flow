@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ForgetPasswordScreen2 extends StatelessWidget {
+
   const ForgetPasswordScreen2({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final email=ModalRoute.of(context)!.settings.arguments as String;
     return SafeArea(
       child: Container(
         padding: EdgeInsets.fromLTRB(30, 30, 30, 50),
@@ -30,8 +32,8 @@ class ForgetPasswordScreen2 extends StatelessWidget {
                     alignment: Alignment.center,
                     child: CircleAvatar(
                       backgroundColor: Colors.blueAccent,
-                      child: Icon(Icons.email_outlined, size: 50),
-                      radius: 50,
+                      child: Icon(Icons.email_outlined, size: 100),
+                      radius: 100,
                     ),
                   ),
                   SizedBox(height: 10.0),
@@ -61,7 +63,7 @@ class ForgetPasswordScreen2 extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      'hanansattar533@gmail.com',
+                      email,
                       style: TextStyle(
                         fontSize: 22.0,
                         fontWeight: FontWeight.bold,
@@ -69,16 +71,16 @@ class ForgetPasswordScreen2 extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 200.0),
-                  SizedBox(height: 30.0),
+                  SizedBox(height: 150.0),
 
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      'Didn\'t recieve the email?',
+                      'Check your spam folder if you didn\'t get it yet?',
                       style: TextStyle(
-                        fontSize: 22.0,
+                        fontSize: 18.0,
                         fontWeight: FontWeight(200),
+                        color: Colors.black
                       ),
                     ),
                   ),
@@ -90,7 +92,7 @@ class ForgetPasswordScreen2 extends StatelessWidget {
                       },
                       child: Text(
                         'Resend',
-                        style: TextStyle(color: Colors.blue),
+                        style: TextStyle(color: Colors.blue,fontSize: 20),
                       ),
                     ),
                   ),

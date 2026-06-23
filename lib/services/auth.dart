@@ -73,5 +73,11 @@ class AuthServices {
     }
   }
 
+  // forget password
+  Future<void> forgetPassword( String email) async {
+    await _auth.sendPasswordResetEmail(email: email);
+
+  }
+
 
 }

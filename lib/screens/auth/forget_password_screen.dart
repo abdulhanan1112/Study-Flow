@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:study_flow/providers/auth_provider.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
+//variable to store email
+final emailController=TextEditingController();
+
+class ForgetPasswordScreen extends ConsumerWidget {
   const ForgetPasswordScreen({super.key});
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     return SafeArea(
       child: Container(
         padding: EdgeInsets.fromLTRB(30, 30, 30, 50),
@@ -65,6 +69,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextFormField(
+                          controller:emailController,
                           decoration: InputDecoration(
                             hintText: 'Email address',
                             fillColor: Colors.white,
@@ -79,8 +84,10 @@ class ForgetPasswordScreen extends StatelessWidget {
                           width: 500.0,
 
                           child: FloatingActionButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/forgetPassword2');
+                            onPressed: () async{
+                              final AuthObj=ref.read(AuthProvider);
+                              await AuthObj.forgetPassword(emailController.text.trim());
+                              Navigator.pushNamed(context, '/forgetPassword2',arguments: emailController.text.trim());
                             },
                             elevation: 0.0,
                             backgroundColor: Colors.blue[600],
