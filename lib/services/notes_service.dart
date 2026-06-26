@@ -4,6 +4,7 @@ import 'package:study_flow/models/notes_model.dart';
 
 class NotesService {
   final String uid;
+  int count=0;
 
   NotesService({required this.uid});
 
@@ -18,7 +19,9 @@ class NotesService {
           'title':title,
           'content' :notes
         }
+
       );
+      count++;
     }catch(e)
     {
       print(e.toString());
@@ -29,8 +32,15 @@ class NotesService {
   Future<List<NotesModel>> getNotes(String subjectId)async{
     final notes= await _subjectInstance.doc(uid).collection('Subjects').doc(subjectId).collection('Notes').get();
     return notes.docs.map((note){
-      return NotesModel(notes: note['content'],title: note['title']);
+      return NotesModel(notes: note['content'],title: note['title'],notesId: note.id);
     }).toList();
+  }
+
+  //delete the notes
+  void deleteNotes(String notesId,String subjectId)async{
+    await _subjectInstance.doc(uid).collection('Subjects').doc(subjectId).collection('Notes').doc(notesId).delete();
+    count--;
+
   }
 
 }

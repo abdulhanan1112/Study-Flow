@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:study_flow/models/notes_model.dart';
 import 'package:study_flow/models/subject_model.dart';
+import 'package:study_flow/providers/notes_provider.dart';
+import 'package:study_flow/services/notes_service.dart';
 
 class SubjectService {
   String? uid;
@@ -32,8 +35,17 @@ class SubjectService {
       return Subjects(name: doc['name'],sid: doc.id);
     }).toList();
 
+  }
+  // delete subjects
+  void deleteSubject(String subjectId)async{
+    NotesService obj=NotesService(uid: uid!);
+    List<NotesModel> notes=await obj.getNotes(subjectId);
+     notes.map((note){
+     obj.deleteNotes(note.notesId, subjectId);
 
-
+    });
+     await _subjectInstance.doc(uid).collection('Subjects').doc(subjectId).delete();
+    count--;
   }
 
 

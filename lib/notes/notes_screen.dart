@@ -22,19 +22,14 @@ class NotesScreen extends ConsumerWidget {
             Navigator.pop(context);
           }, label: Icon(Icons.arrow_back)
           ),
-          actions: [
-            FloatingActionButton(onPressed:(){
-              Navigator.pushNamed(context, '/edit_notes_screen',arguments: sid);
-
-            },
-              child: Icon(Icons.add,color: Colors.blue,size: 40,),
-              backgroundColor: Colors.indigoAccent,
-            )
-          ],
         ),
         body: listProvider.when(
             data: (Notes){
-              return GridView.builder(
+              return  Notes.isEmpty?Center(
+                child: const Text('No Notes yet',style: TextStyle(fontSize: 25,fontWeight: FontWeight(60),color: Colors.black
+
+                ),),
+              ):GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount:2,
                       mainAxisSpacing: 16,
@@ -81,7 +76,15 @@ class NotesScreen extends ConsumerWidget {
                                     label:Text('edit'),
                                   ),
                                 ],
-                              )
+                              ),
+                              TextButton.icon(onPressed: ()async {
+                                final obj=ref.read(NotesProvider);
+                                 obj.deleteNotes(Notes[index].notesId, sid);
+                                 ref.invalidate(listOfNotesProvider);
+                              },
+                                icon: Icon(Icons.delete),
+                                label:Text('delete'),
+                              ),
 
                             ],
                           )
@@ -101,6 +104,9 @@ class NotesScreen extends ConsumerWidget {
               );
             }
         ),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Navigator.pushNamed(context, '/edit_notes_screen',arguments: sid);
+      },child: Icon(Icons.add),),
 
 
     );
