@@ -3,11 +3,14 @@ import 'package:study_flow/dashboard/dashboard_screen.dart';
 import 'package:study_flow/notes/edit_notes_screen.dart';
 import 'package:study_flow/notes/notes_screen.dart';
 import 'package:study_flow/notes/open_notes_screen.dart';
+import 'package:study_flow/profile/about_developer.dart';
 import 'package:study_flow/screens/auth/forget_password_screen.dart';
 import 'package:study_flow/screens/auth/forgetpassword_screen2.dart';
 import 'package:study_flow/screens/auth/login_screen.dart';
 import 'package:study_flow/screens/auth/signUp_screens.dart';
 import 'package:study_flow/screens/auth/splash_screen.dart';
+import 'package:study_flow/tasks/new_task_screen.dart';
+import 'package:study_flow/tasks/task_screen.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -47,6 +50,9 @@ class MyApp extends StatelessWidget {
         '/edit_notes_screen' :(context)=>EditNotesScreen(),
         '/open_notes_screen' :(context)=>OpenNotesScreen(),
         '/notes_screen' :(context)=>NotesScreen(),
+        '/new_task_screen':(context)=>TaskScreen(),
+        '/task_screen':(context)=>NewTaskScreen(),
+        '/about_developer':(context)=>AboutDeveloperScreen(),
       },
     );
   }

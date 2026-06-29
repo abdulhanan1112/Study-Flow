@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:study_flow/providers/notes_provider.dart';
 import 'package:study_flow/providers/subject_provider.dart';
+import 'package:study_flow/providers/tasks_provider.dart';
 import 'package:study_flow/subjects/add_subjects_screen.dart';
 class SubjectsScreen extends ConsumerWidget {
   const SubjectsScreen({super.key});
@@ -28,8 +29,10 @@ class SubjectsScreen extends ConsumerWidget {
               ):ListView.builder(
                   itemCount: subjects.length,
                   itemBuilder: (context,index){
-                    final notesProv=ref.read(NotesProvider);
-                    int count=notesProv.count;
+                    final notesProv=ref.watch(NotesProvider);
+                    final taskProv=ref.watch(taskProvider);
+                    int notesCount=notesProv.count;
+                    int tasksCount=taskProv.count;
                     return Card(
                       margin: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
                       child: ListTile(
@@ -50,26 +53,9 @@ class SubjectsScreen extends ConsumerWidget {
                         onTap: (){
                           Navigator.pushNamed(context, '/notes_screen',arguments: subjects[index]);
                         },
-                        subtitle: Text('$count notes . 0 tasks'),
+                        subtitle: Text('$notesCount notes . $tasksCount tasks'),
                         onLongPress: (){
-                          showDialog(
-                              context: context,
-                              builder: (context)=>AlertDialog(
-                                title: Text('Delete Subject'),
-                                content: Text('Are you sure you want to delete this subject?'),
-                                actions: [
-                                  TextButton.icon(onPressed:(){
-                                    Navigator.pop(context);
-                                  }, label:Text('Cancel')),
-                                  TextButton.icon(onPressed:()async{
-                                    final obj=ref.read(SubjectProvider);
-                                    obj.deleteSubject(subjects[index].sid);
-                                    ref.invalidate(listOfSubjectProvider);
-                                    Navigator.pop(context);
-                                  }, label:Text('Delete')),
-                                ],
 
-                              ));
 
 
                         },
